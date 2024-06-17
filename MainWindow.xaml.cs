@@ -44,14 +44,21 @@ namespace UserManagementApp
             }
 
             UsersDataGrid.ItemsSource = Users;
-            NameTextBox.Text = "";
-            EmailTextBox.Text = "";
+            ClearInputs();
 
+        }
+
+        private void ClearInputs()
+        {
+            NameTextBox.Text = "";
+            SurnameTextBox.Text = "";
+            AddressTextBox.Text = "";
+            PhoneNumberTextBox.Text = "";
+            EmailTextBox.Text = "";
         }
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTextBox.Text == "" || SurnameTextBox.Text == "") return;
             
             using (var connection = DatabaseHelper.GetConnection())
             {
@@ -134,6 +141,11 @@ namespace UserManagementApp
                 DeleteButton.IsEnabled = false;
                 EditButton.IsEnabled = false;
             }
+
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

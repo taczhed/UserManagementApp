@@ -9,7 +9,7 @@ namespace UserManagementApp.Classes
 {
     public static class DatabaseHelper
     {
-        private const string ConnectionString = "Data Source=User.db";
+        private const string ConnectionString = "Data Source=Test.db";
 
         public static void InitializeDatabase()
         {
@@ -20,9 +20,9 @@ namespace UserManagementApp.Classes
                                   Id INTEGER PRIMARY KEY AUTOINCREMENT,
                                   Name TEXT NOT NULL,
                                   Surname TEXT NOT NULL,
-                                  Address TEXT,                             
-                                  Email TEXT,
-                                  PhoneNumber TEXT                      
+                                  Address TEXT NOT NULL,
+                                  PhoneNumber TEXT NOT NULL,
+                                  Email TEXT NOT NULL                
                                 );";
                 using (var command = new SQLiteCommand(tableQuery, connection))
                 {
