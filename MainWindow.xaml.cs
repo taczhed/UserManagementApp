@@ -147,6 +147,52 @@ namespace UserManagementApp
         private void Search_Click(object sender, RoutedEventArgs e)
         {
 
+            if (SearchButton.Content == "Clear") 
+            {
+                SearchButton.Content = "Search";
+                AddButton.IsEnabled = true;
+                LoadUsers();
+                return;
+            }
+
+            Users = new ObservableCollection<User>();
+
+            using (var connection = DatabaseHelper.GetConnection())
+            {
+                connection.Open();
+                string selectQuery = "SELECT * FROM Users";
+                using (var command = new SQLiteCommand(selectQuery, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        bool isValid =
+                            reader.GetString(1).ToLower().Contains(NameTextBox.Text.ToLower()) &&
+                            reader.GetString(2).ToLower().Contains(SurnameTextBox.Text.ToLower()) &&
+                            reader.GetString(3).ToLower().Contains(AddressTextBox.Text.ToLower()) &&
+                            reader.GetString(4).ToLower().Contains(PhoneNumberTextBox.Text.ToLower()) &&
+                            reader.GetString(5).ToLower().Contains(EmailTextBox.Text.ToLower());
+
+                        if (isValid)
+                        {
+                            Users.Add(new User
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                Surname = reader.GetString(2),
+                                Address = reader.GetString(3),
+                                PhoneNumber = reader.GetString(4),
+                                Email = reader.GetString(5)
+                            });
+                        }
+                    }
+                }
+
+                UsersDataGrid.ItemsSource = Users;
+                SearchButton.Content = "Clear";
+                AddButton.IsEnabled = false;
+            }
         }
     }
 
