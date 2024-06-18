@@ -1,7 +1,7 @@
 ﻿<Window x:Class="UserManagementApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="User Management" Height="540" Width="1096">
+        Title="User Management" Height="440" Width="916">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -13,34 +13,34 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" Margin="10" Grid.ColumnSpan="2">
-            
+
             <TextBlock Text="User Management" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" Foreground="#00563F"/>
 
-            
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Name:" Margin="5" VerticalAlignment="Center" FontSize="14" Foreground="#00563F"/>
-                    <TextBox x:Name="NameTextBox" Width="200" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
+                    <TextBox x:Name="NameTextBox" Width="164" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <Label Content="Surname:" Margin="5" VerticalAlignment="Center" FontSize="14" Foreground="#00563F"/>
-                    <TextBox x:Name="SurnameTextBox" Width="200" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
+                    <TextBox x:Name="SurnameTextBox" Width="164" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <Label Content="Address:" Margin="5" VerticalAlignment="Center" FontSize="14" Foreground="#00563F"/>
-                    <TextBox x:Name="AddressTextBox" Width="200" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
+                    <TextBox x:Name="AddressTextBox" Width="164" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <Label Content="Phone number:" Margin="5" VerticalAlignment="Center" FontSize="14" Foreground="#00563F"/>
-                    <TextBox x:Name="PhoneNumberTextBox" Width="200" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
+                    <TextBox x:Name="PhoneNumberTextBox" Width="164" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <Label Content="Email:" Margin="5" VerticalAlignment="Center" FontSize="14" Foreground="#00563F"/>
-                    <TextBox x:Name="EmailTextBox" Width="200" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
+                    <TextBox x:Name="EmailTextBox" Width="164" Margin="5" FontSize="14" Foreground="#00563F" BorderBrush="#00563F"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -56,11 +56,16 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="10,10,10,0" VerticalAlignment="Top" Height="177">
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="10,10,10,0" VerticalAlignment="Top" Height="263">
             <Button x:Name="SearchButton" Content="Search" Click="Search_Click" Margin="5" Padding="10,5" FontSize="14" Background="#00563F" Foreground="#FFFFFF" BorderBrush="#00563F"/>
+            <Button x:Name="ClearButton" Content="Clear" Margin="5,5,5,50" Padding="10,5" FontSize="14" Background="#00563F" Foreground="#FFFFFF" BorderBrush="#00563F" Height="31" Click="ClearButton_Click"/>
+
+            
+            
             <Button x:Name="AddButton" Content="Add" Click="AddUser_Click" Margin="5" Padding="10,5" FontSize="14" Background="#00563F" Foreground="#FFFFFF" BorderBrush="#00563F"/>
             <Button x:Name="EditButton" Content="Edit" Click="EditUser_Click" IsEnabled="False" Margin="5" Padding="10,5" FontSize="14" Background="#00563F" Foreground="#FFFFFF" BorderBrush="#00563F"/>
             <Button x:Name="DeleteButton" Content="Delete" Click="DeleteUser_Click" IsEnabled="False" Margin="5" Padding="10,5" FontSize="14" Background="#00563F" Foreground="#FFFFFF" BorderBrush="#00563F"/>
         </StackPanel>
+
     </Grid>
 </Window>

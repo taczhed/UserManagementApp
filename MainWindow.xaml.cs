@@ -147,14 +147,6 @@ namespace UserManagementApp
         private void Search_Click(object sender, RoutedEventArgs e)
         {
 
-            if (SearchButton.Content == "Clear") 
-            {
-                SearchButton.Content = "Search";
-                AddButton.IsEnabled = true;
-                LoadUsers();
-                return;
-            }
-
             Users = new ObservableCollection<User>();
 
             using (var connection = DatabaseHelper.GetConnection())
@@ -190,9 +182,13 @@ namespace UserManagementApp
                 }
 
                 UsersDataGrid.ItemsSource = Users;
-                SearchButton.Content = "Clear";
-                AddButton.IsEnabled = false;
             }
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddButton.IsEnabled = true;
+            LoadUsers();
         }
     }
 
