@@ -101,7 +101,6 @@ namespace UserManagementApp
             }
         }
 
-        // Done
         private void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
             if (UsersDataGrid.SelectedItem is User selectedUser)
@@ -121,7 +120,6 @@ namespace UserManagementApp
             }
         }
 
-        //Done
         private void UsersDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
